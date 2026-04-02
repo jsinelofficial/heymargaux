@@ -158,12 +158,16 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-[#3a2a14] bg-[#0b0908]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-full border border-[#7a5621] bg-gradient-to-br from-[#f2c46b] to-[#8d5b14]" />
+            <img
+  src="/logo.png"
+  alt="Hey Margaux"
+  className="h-8 w-8 object-contain"
+/>
             <div>
               <p className="text-sm font-semibold tracking-wide text-[#f3d7a0]">
                 Hey Margaux
               </p>
-              <p className="text-[11px] text-[#8e7650]">heymargaux.xyz</p>
+              <p className="text-[11px] text-[#8e7650]">Play. Win. Repeat</p>
             </div>
           </div>
 
