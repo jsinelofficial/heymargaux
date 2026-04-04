@@ -88,7 +88,7 @@ export default async function ArticlePage({
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="https://stake.com/?c=byemargaux"
+                href="stake.com/?c=byemargaux&offer=byemargaux"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-xl bg-[#d9a441] px-5 py-3 text-sm font-semibold text-[#120d07] transition hover:brightness-110"

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hey Margaux",
   description:
-    "Official Hey Margaux hub for streams, community access, bonuses, and creator-led promos.",
+    "Official Hey Margaux hub for streams, community leaderboard and Stake giveaways.",
   icons: {
     icon: "/favicon.ico",
   },

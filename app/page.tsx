@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function HomePage() {
-  const affiliateLink = "https://stake.com/?c=byemargaux";
+  const affiliateLink = "stake.com/?c=byemargaux&offer=byemargaux";
   const bonusCode = "byemargaux";
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 

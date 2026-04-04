@@ -84,7 +84,7 @@ export default function ArticlesPage() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href="https://stake.com/?c=byemargaux"
+              href="stake.com/?c=byemargaux&offer=byemargaux"
               target="_blank"
               rel="noreferrer"
               className="rounded-xl bg-[#d9a441] px-6 py-3 text-sm font-semibold text-[#120d07] transition hover:brightness-110"
