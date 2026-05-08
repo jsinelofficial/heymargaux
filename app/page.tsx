@@ -513,23 +513,12 @@ export default function HomePage() {
                 key={game.title}
                 className="flex flex-col rounded-[28px] bg-[radial-gradient(ellipse_at_top_right,#4a3010_0%,#1e1408_55%,#12100d_100%)] p-7 shadow-[0_8px_40px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(217,164,65,0.1)]"
               >
-                {/* Platform header */}
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1a9e3f] text-xl shadow-[0_2px_8px_rgba(26,158,63,0.4)]">
-                    🚩
-                  </div>
-                  <div>
-                    <p className="text-2xl font-black uppercase tracking-wider text-white">Stake</p>
-                    <p className="text-xs text-[#8d6a33]">Featured Game</p>
-                  </div>
-                </div>
-
-                {/* Game icon + title */}
-                <div className="mt-6 flex items-center gap-4">
+                {/* Game header */}
+                <div className="flex items-center gap-4">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#0e0b08]/70 text-3xl border border-[#3a2a10]/60">
                     {game.icon}
                   </div>
-                  <h3 className="text-xl font-black uppercase tracking-wide text-white">{game.title}</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-wider text-white">{game.title}</h3>
                 </div>
 
                 {/* Description */}
