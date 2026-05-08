@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(cp \"C:\\\\Users\\\\JS\\\\heymargaux-site\\\\public\\\\margaux-icon.png\" \"C:\\\\Users\\\\JS\\\\heymargaux-site\\\\.claude\\\\worktrees\\\\infallible-banach-ebea9c\\\\public\\\\margaux-icon.png\")"
+    ]
+  }
+}
