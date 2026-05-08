@@ -83,8 +83,48 @@ export default function LeaderboardPage() {
     }
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://heymargaux.xyz" },
+      { "@type": "ListItem", position: 2, name: "Leaderboard", item: "https://heymargaux.xyz/leaderboard" },
+    ],
+  };
+
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: `Hey Margaux Monthly Wager Race — ${currentMonthLabel()}`,
+    description:
+      "Monthly wagering competition on Stake.com. Top 10 players share $1,250 in prizes. Register with your Stake username using code heymargaux.",
+    url: "https://heymargaux.xyz/leaderboard",
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    organizer: {
+      "@type": "Person",
+      name: "Hey Margaux",
+      url: "https://heymargaux.xyz",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Free to enter — sign up on Stake with code heymargaux",
+      url: "https://heymargaux.xyz/leaderboard",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#0b0908] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-[#3a2a14] bg-[#0b0908]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">

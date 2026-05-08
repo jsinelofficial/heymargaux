@@ -25,8 +25,34 @@ export default async function ArticlePage({
 
   const html = await marked(article.content);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    author: {
+      "@type": "Person",
+      name: "Hey Margaux",
+      url: "https://heymargaux.xyz",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Hey Margaux",
+      url: "https://heymargaux.xyz",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://heymargaux.xyz/articles/${article.slug}`,
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#0b0908] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
         <Link
           href="/articles"
@@ -80,7 +106,7 @@ export default async function ArticlePage({
               Ready to play?
             </p>
             <h2 className="mt-3 text-2xl font-semibold text-[#fff5e3] md:text-3xl">
-              Use code <span className="text-[#d9a441]">byemargaux</span> and play through my official link
+              Use code <span className="text-[#d9a441]">heymargaux</span> and play through my official link
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-[#a88b61]">
               Join through the official Hey Margaux flow for bonus access, community perks, and promo updates.
@@ -88,7 +114,7 @@ export default async function ArticlePage({
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="stake.com/?c=byemargaux&offer=byemargaux"
+                href="https://stake.com/?c=heymargaux&offer=heymargaux"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-xl bg-[#d9a441] px-5 py-3 text-sm font-semibold text-[#120d07] transition hover:brightness-110"

@@ -138,8 +138,29 @@ export default function HomePage() {
     { label: "Twitch", href: "https://www.twitch.tv/heymargaux" },
   ];
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Margaux",
+    alternateName: "Hey Margaux",
+    url: "https://heymargaux.xyz",
+    jobTitle: "Content Creator & Streamer",
+    description:
+      "Full-time Stake streamer running monthly cash races and exclusive bonuses for her community.",
+    sameAs: [
+      "https://kick.com/heymargaux",
+      "https://discord.gg/9bFFkbjRFa",
+      "https://www.facebook.com/heymargaux",
+      "https://www.twitch.tv/heymargaux",
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-[#0b0908] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <header className="sticky top-0 z-50 border-b border-[#3a2a14] bg-[#0b0908]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
