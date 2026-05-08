@@ -161,7 +161,7 @@ export default function HomePage() {
 
   const socials = [
     { label: "Kick", href: "https://kick.com/heymargaux" },
-    { label: "Discord", href: "https://discord.gg/9bFFkbjRFa" },
+    { label: "Discord", href: "https://discord.gg/D2xJzsWsz5" },
     { label: "Facebook", href: "https://www.facebook.com/heymargaux" },
     { label: "Twitch", href: "https://www.twitch.tv/heymargaux" },
   ];
@@ -177,7 +177,7 @@ export default function HomePage() {
       "Full-time Stake streamer running monthly cash races and exclusive bonuses for her community.",
     sameAs: [
       "https://kick.com/heymargaux",
-      "https://discord.gg/9bFFkbjRFa",
+      "https://discord.gg/heymargaux",
       "https://www.facebook.com/heymargaux",
       "https://www.twitch.tv/heymargaux",
     ],
@@ -336,7 +336,7 @@ export default function HomePage() {
               <p className="text-xs uppercase tracking-[0.25em] text-[#8d6a33]">Your host</p>
               <h2 className="mt-2 text-3xl font-semibold text-[#fff5e3]">Hey, I&apos;m Margaux</h2>
               <p className="mt-3 max-w-xl text-sm leading-7 text-[#a88b61]">
-                Full-time Stake streamer and content creator. I stream every day, run monthly cash races for my community, and make sure every player who signs up through my links gets the best possible start.
+                Part-time Stake streamer and content creator. I stream every other day, run monthly cash races for my community, and make sure every player who signs up through my links gets the best possible start.
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3 md:justify-start">
                 {socials.map((s) => (
@@ -361,7 +361,7 @@ export default function HomePage() {
             <p className="text-xs uppercase tracking-[0.3em] text-[#8d6a33]">Why join through me</p>
             <h2 className="mt-3 text-4xl font-semibold text-[#fff5e3]">Exclusive Benefits</h2>
             <p className="mt-4 text-sm leading-7 text-[#a88b61]">
-              Sign up through my official links and stay plugged into giveaways, community updates, and stream-first perks.
+              Sign up using my code and stay plugged into giveaways, community updates, and stream-first perks.
             </p>
           </div>
 
