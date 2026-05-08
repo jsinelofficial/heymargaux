@@ -427,59 +427,69 @@ export default function HomePage() {
                 Current <span className="text-[#d9a441]">Promos</span>
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#a88b61]">
-                Exclusive bonus codes and active offers — updated regularly. Copy your code and claim before they expire.
+                Exclusive bonus codes and active offers — updated regularly.
               </p>
             </div>
 
-            <div className="mt-16 grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-16 grid gap-6 md:grid-cols-2">
               {promos.map((promo) => {
                 const isCopied = copiedCode === promo.code;
                 return (
                   <div
                     key={promo.title}
-                    className="flex min-h-[560px] flex-col rounded-[28px] border border-[#2f2418] bg-[linear-gradient(180deg,#171311_0%,#14110f_100%)] p-7 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+                    className="flex flex-col rounded-[28px] bg-[radial-gradient(ellipse_at_top_right,#4a3010_0%,#1e1408_55%,#12100d_100%)] p-7 shadow-[0_8px_40px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(217,164,65,0.1)]"
                   >
-                    <div className="h-[44px]">
-                      <div className={`inline-flex w-fit items-center rounded-full border px-4 py-2 text-sm font-semibold ${promo.tagColor}`}>
-                        ✦ {promo.tag}
+                    {/* Platform header */}
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1a9e3f] text-xl shadow-[0_2px_8px_rgba(26,158,63,0.4)]">
+                        🚩
+                      </div>
+                      <div>
+                        <p className="text-2xl font-black uppercase tracking-wider text-white">Stake</p>
+                        <div className={`mt-0.5 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${promo.tagColor}`}>
+                          {promo.tag}
+                        </div>
                       </div>
                     </div>
 
-                    <div className="mt-8 h-[96px]">
-                      <h3 className="text-[1.55rem] font-semibold leading-tight text-[#f2e7d6]">{promo.title}</h3>
+                    {/* Description */}
+                    <p className="mt-5 text-[15px] leading-7 text-[#c9a87a]">
+                      <span className="font-semibold text-white">{promo.title}.</span>{" "}{promo.text}
+                    </p>
+
+                    {/* Code row */}
+                    <div className="mt-6 flex items-center overflow-hidden rounded-2xl border border-[#3a2a10]/60 bg-[#0e0b08]/70">
+                      <span className="shrink-0 border-r border-[#3a2a10]/60 px-4 py-4 text-xs font-bold uppercase tracking-[0.18em] text-[#7a6340]">
+                        Use Code
+                      </span>
+                      <span className="flex-1 px-4 text-lg font-black uppercase tracking-widest text-[#f0c050]">
+                        {promo.code}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopy(promo.code)}
+                        aria-label={`Copy bonus code ${promo.code}`}
+                        className="shrink-0 px-4 py-4 text-[#7a6340] transition hover:text-[#d9a441]"
+                      >
+                        {isCopied ? (
+                          <span className="text-xs font-semibold text-emerald-400">✓</span>
+                        ) : (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                          </svg>
+                        )}
+                      </button>
                     </div>
 
-                    <div className="mt-6 h-[112px]">
-                      <p className="text-[15px] leading-8 text-[#a58a64]">{promo.text}</p>
-                    </div>
-
-                    <div className="mt-auto pt-8">
-                      <p className="text-[13px] font-medium uppercase tracking-[0.16em] text-[#8f7758]">Bonus Code</p>
-                      <div className="mt-4 flex items-center gap-3">
-                        <button
-                          type="button"
-                          onClick={() => handleCopy(promo.code)}
-                          className="group h-14 min-w-0 flex-1 rounded-2xl border border-[#2f2418] bg-[#1b1613] px-5 transition hover:border-[#4b3922] hover:bg-[#211a16]"
-                          aria-label={`Copy bonus code ${promo.code}`}
-                        >
-                          <div className="flex items-center justify-between gap-3">
-                            <span className="truncate text-[14px] font-semibold tracking-[0.14em] text-[#d9a441]">
-                              {promo.code}
-                            </span>
-                            <span className="shrink-0 text-sm text-[#7f6a50] transition group-hover:text-[#a88b61]">
-                              {isCopied ? "Copied" : "⧉"}
-                            </span>
-                          </div>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleClaim(promo.code)}
-                          className="h-14 w-[96px] shrink-0 rounded-2xl bg-[#d1a043] px-4 text-base font-semibold text-[#120d07] transition hover:brightness-105 active:scale-[0.98]"
-                        >
-                          {isCopied ? "Copied" : "Claim"}
-                        </button>
-                      </div>
-                    </div>
+                    {/* CTA */}
+                    <button
+                      type="button"
+                      onClick={() => handleClaim(promo.code)}
+                      className="mt-4 w-full rounded-2xl bg-[#d9a441] py-4 text-sm font-black uppercase tracking-widest text-[#120d07] transition hover:brightness-110 active:scale-[0.98]"
+                    >
+                      {isCopied ? "Code Copied — Opening Stake…" : "Sign Up on Stake →"}
+                    </button>
                   </div>
                 );
               })}
