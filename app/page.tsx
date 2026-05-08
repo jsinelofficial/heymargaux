@@ -65,12 +65,12 @@ export default function HomePage() {
   ];
 
   const vipTiers = [
-    { name: "Bronze",      bonus: "$50",  icon: "🥉", color: "text-amber-700",   border: "border-amber-700/30",   bg: "bg-amber-700/10"   },
-    { name: "Silver",      bonus: "$50",  icon: "🥈", color: "text-slate-300",   border: "border-slate-400/30",   bg: "bg-slate-400/10"   },
-    { name: "Gold",        bonus: "$50",  icon: "🥇", color: "text-yellow-400",  border: "border-yellow-500/30",  bg: "bg-yellow-500/10"  },
-    { name: "Platinum I",  bonus: "$50",  icon: "💎", color: "text-cyan-400",    border: "border-cyan-500/30",    bg: "bg-cyan-500/10"    },
-    { name: "Platinum II", bonus: "$50",  icon: "💎", color: "text-violet-400",  border: "border-violet-500/30",  bg: "bg-violet-500/10"  },
-    { name: "Platinum III",bonus: "$50",  icon: "👑", color: "text-[#d9a441]",   border: "border-[#d9a441]/30",   bg: "bg-[#d9a441]/10"   },
+    { name: "Bronze",      bonus: "$50",   icon: "🥉", color: "text-amber-700",   border: "border-amber-700/30",   bg: "bg-amber-700/10"   },
+    { name: "Silver",      bonus: "$75",   icon: "🥈", color: "text-slate-300",   border: "border-slate-400/30",   bg: "bg-slate-400/10"   },
+    { name: "Gold",        bonus: "$100",  icon: "🥇", color: "text-yellow-400",  border: "border-yellow-500/30",  bg: "bg-yellow-500/10"  },
+    { name: "Platinum I",  bonus: "$150",  icon: "💎", color: "text-cyan-400",    border: "border-cyan-500/30",    bg: "bg-cyan-500/10"    },
+    { name: "Platinum II", bonus: "$175",  icon: "💎", color: "text-violet-400",  border: "border-violet-500/30",  bg: "bg-violet-500/10"  },
+    { name: "Platinum III",bonus: "$250",  icon: "👑", color: "text-[#d9a441]",   border: "border-[#d9a441]/30",   bg: "bg-[#d9a441]/10"   },
   ];
 
   const promos = [
