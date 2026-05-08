@@ -507,18 +507,41 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {games.map((game) => (
               <div
                 key={game.title}
-                className="rounded-2xl border border-[#2d2113] bg-[radial-gradient(circle_at_top,rgba(217,164,65,0.12),transparent_35%),#12100d] p-6"
+                className="flex flex-col rounded-[28px] bg-[radial-gradient(ellipse_at_top_right,#4a3010_0%,#1e1408_55%,#12100d_100%)] p-7 shadow-[0_8px_40px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(217,164,65,0.1)]"
               >
-                <div className="flex h-24 items-center justify-center rounded-2xl bg-[linear-gradient(to_bottom_right,rgba(13,26,64,0.8),rgba(8,10,18,0.95))] text-4xl text-[#d9a441]">
-                  {game.icon}
+                {/* Platform header */}
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1a9e3f] text-xl shadow-[0_2px_8px_rgba(26,158,63,0.4)]">
+                    🚩
+                  </div>
+                  <div>
+                    <p className="text-2xl font-black uppercase tracking-wider text-white">Stake</p>
+                    <p className="text-xs text-[#8d6a33]">Featured Game</p>
+                  </div>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-[#f9e8ca]">{game.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#9d825b]">{game.desc}</p>
-                <a href={affiliateLink} target="_blank" rel="noreferrer" className="mt-4 inline-block text-sm font-medium text-[#d9a441] hover:text-[#f2c46b]">
+
+                {/* Game icon + title */}
+                <div className="mt-6 flex items-center gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#0e0b08]/70 text-3xl border border-[#3a2a10]/60">
+                    {game.icon}
+                  </div>
+                  <h3 className="text-xl font-black uppercase tracking-wide text-white">{game.title}</h3>
+                </div>
+
+                {/* Description */}
+                <p className="mt-4 text-[15px] leading-7 text-[#c9a87a]">{game.desc}</p>
+
+                {/* CTA */}
+                <a
+                  href={affiliateLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 block w-full rounded-2xl bg-[#d9a441] py-4 text-center text-sm font-black uppercase tracking-widest text-[#120d07] transition hover:brightness-110 active:scale-[0.98]"
+                >
                   Play Now →
                 </a>
               </div>
