@@ -19,8 +19,8 @@ function getPrize(rank: number) {
 }
 
 function maskUsername(username: string) {
-  if (username.length <= 3) return username;
-  return username.slice(0, 2) + "***" + username.slice(-1);
+  if (username.length <= 5) return username;
+  return username.slice(0, 2) + "***" + username.slice(-3);
 }
 
 function currentMonthLabel() {
@@ -227,7 +227,8 @@ export default function LeaderboardPage() {
             {/* Table header */}
             <div className="grid grid-cols-4 border-b border-[#2d2113] bg-[#15110d] px-6 py-3 text-xs uppercase tracking-[0.15em] text-[#7a6340]">
               <span>Rank</span>
-              <span className="col-span-2">Player</span>
+              <span>Player</span>
+              <span className="text-right">Wagered</span>
               <span className="text-right">Prize</span>
             </div>
 
@@ -249,8 +250,11 @@ export default function LeaderboardPage() {
                     <span className={`text-lg font-bold ${rank === 1 ? "text-yellow-400" : rank === 2 ? "text-slate-300" : rank === 3 ? "text-amber-600" : "text-[#8e7650]"}`}>
                       #{rank}
                     </span>
-                    <span className="col-span-2 font-medium text-[#f3d7a0]">
+                    <span className="font-medium text-[#f3d7a0]">
                       {maskUsername(entry.stake_username)}
+                    </span>
+                    <span className="text-right text-sm text-[#a88b61]">
+                      ${entry.wager_usd.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                     <span className="text-right font-semibold text-[#d9a441]">
                       {getPrize(rank)}
