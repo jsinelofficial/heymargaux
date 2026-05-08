@@ -64,6 +64,15 @@ export default function HomePage() {
     },
   ];
 
+  const vipTiers = [
+    { name: "Bronze",      bonus: "$50",  icon: "🥉", color: "text-amber-700",   border: "border-amber-700/30",   bg: "bg-amber-700/10"   },
+    { name: "Silver",      bonus: "$50",  icon: "🥈", color: "text-slate-300",   border: "border-slate-400/30",   bg: "bg-slate-400/10"   },
+    { name: "Gold",        bonus: "$50",  icon: "🥇", color: "text-yellow-400",  border: "border-yellow-500/30",  bg: "bg-yellow-500/10"  },
+    { name: "Platinum I",  bonus: "$50",  icon: "💎", color: "text-cyan-400",    border: "border-cyan-500/30",    bg: "bg-cyan-500/10"    },
+    { name: "Platinum II", bonus: "$50",  icon: "💎", color: "text-violet-400",  border: "border-violet-500/30",  bg: "bg-violet-500/10"  },
+    { name: "Platinum III",bonus: "$50",  icon: "👑", color: "text-[#d9a441]",   border: "border-[#d9a441]/30",   bg: "bg-[#d9a441]/10"   },
+  ];
+
   const promos = [
     {
       tag: "New Players",
@@ -164,7 +173,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-[#3a2a14] bg-[#0b0908]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Hey Margaux" width={32} height={32} className="h-8 w-8 object-contain" />
+            <Image src="/margaux-icon.png" alt="Hey Margaux" width={32} height={32} className="h-8 w-8 object-contain" />
             <div>
               <p className="text-sm font-semibold tracking-wide text-[#f3d7a0]">Hey Margaux</p>
               <p className="text-[11px] text-[#8e7650]">Play. Win. Repeat</p>
@@ -173,6 +182,7 @@ export default function HomePage() {
 
           <nav className="hidden items-center gap-8 text-sm text-[#b69561] md:flex">
             <a href="#benefits" className="transition hover:text-[#f3d7a0]">Benefits</a>
+            <a href="#vip-tiers" className="transition hover:text-[#f3d7a0]">VIP Tiers</a>
             <a href="#promos" className="transition hover:text-[#f3d7a0]">Promos</a>
             <a href="#games" className="transition hover:text-[#f3d7a0]">Games</a>
             <a href="#how-it-works" className="transition hover:text-[#f3d7a0]">How It Works</a>
@@ -257,7 +267,7 @@ export default function HomePage() {
             {/* Avatar — replace /logo.png with a real photo when available */}
             <div className="shrink-0">
               <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-[#d9a441]/40 shadow-[0_0_32px_rgba(217,164,65,0.15)]">
-                <Image src="/logo.png" alt="Margaux" fill className="object-cover" />
+                <Image src="/margaux-icon.png" alt="Margaux" fill className="object-cover" />
               </div>
             </div>
 
@@ -310,8 +320,45 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* VIP Tiers */}
+        <section id="vip-tiers" className="bg-[#100d0b] py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#8d6a33]">Stake VIP Program</p>
+              <h2 className="mt-3 text-4xl font-semibold text-[#fff5e3]">VIP Tier Rewards</h2>
+              <p className="mt-4 text-sm leading-7 text-[#a88b61]">
+                Every time you reach a new VIP tier on Stake using code{" "}
+                <span className="font-semibold text-[#d9a441]">heymargaux</span>, you unlock a bonus reward — on top of everything Stake already gives you.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {vipTiers.map((tier) => (
+                <div
+                  key={tier.name}
+                  className={`flex items-center gap-5 rounded-2xl border ${tier.border} ${tier.bg} p-5`}
+                >
+                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border ${tier.border} bg-[#0e0b09] text-2xl`}>
+                    {tier.icon}
+                  </div>
+                  <div className="flex-1">
+                    <p className={`text-sm font-semibold uppercase tracking-wide ${tier.color}`}>{tier.name}</p>
+                    <p className="mt-0.5 text-2xl font-bold text-[#f3d7a0]">{tier.bonus}</p>
+                    <p className="mt-0.5 text-xs text-[#7a6340]">One-time tier bonus</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 text-center text-xs text-[#5a4530]">
+              Bonuses are paid out manually upon reaching each tier. Must be signed up through the{" "}
+              <span className="text-[#d9a441]">heymargaux</span> affiliate link to qualify.
+            </p>
+          </div>
+        </section>
+
         {/* Promos */}
-        <section id="promos" className="bg-[#100d0b] py-24">
+        <section id="promos" className="py-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c58b3a]">Always Fresh</p>

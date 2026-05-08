@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   description:
     "Official Hey Margaux hub for streams, community leaderboard and Stake giveaways.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/margaux-icon.png",
+    apple: "/margaux-icon.png",
   },
   openGraph: {
     title: "Hey Margaux",

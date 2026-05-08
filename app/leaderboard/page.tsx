@@ -129,7 +129,7 @@ export default function LeaderboardPage() {
       <header className="sticky top-0 z-50 border-b border-[#3a2a14] bg-[#0b0908]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Hey Margaux" width={32} height={32} className="h-8 w-8 object-contain" />
+            <Image src="/margaux-icon.png" alt="Hey Margaux" width={32} height={32} className="h-8 w-8 object-contain" />
             <div>
               <p className="text-sm font-semibold tracking-wide text-[#f3d7a0]">Hey Margaux</p>
               <p className="text-[11px] text-[#8e7650]">Play. Win. Repeat</p>
