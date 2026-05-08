@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   description:
     "Official Hey Margaux hub for streams, community leaderboard and Stake giveaways.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/margaux-icon.png",
+    apple: "/margaux-icon.png",
   },
   openGraph: {
     title: "Hey Margaux",
@@ -24,6 +25,15 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Hey Margaux",
+  url: "https://heymargaux.xyz",
+  description:
+    "Official Hey Margaux hub for streams, monthly cash races, and Stake bonuses.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,6 +41,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
