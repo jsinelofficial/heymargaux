@@ -23,7 +23,8 @@ export default async function ArticlePage({
     notFound();
   }
 
-  const html = await marked(article.content);
+  const contentWithoutTitle = article.content.replace(/^#\s+.+\n?/, "");
+  const html = await marked(contentWithoutTitle);
 
   const articleSchema = {
     "@context": "https://schema.org",
