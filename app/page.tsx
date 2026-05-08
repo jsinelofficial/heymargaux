@@ -1,12 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function HomePage() {
   const affiliateLink = "https://stake.com/?c=heymargaux&offer=heymargaux";
   const bonusCode = "heymargaux";
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [liveStatus, setLiveStatus] = useState<{
+    isLive: boolean;
+    title: string | null;
+    viewers: number | null;
+  }>({ isLive: false, title: null, viewers: null });
+
+  useEffect(() => {
+    async function checkLive() {
+      try {
+        const res = await fetch("/api/live-status");
+        if (res.ok) setLiveStatus(await res.json());
+      } catch {
+        // silently fail — section just stays hidden
+      }
+    }
+    checkLive();
+    const interval = setInterval(checkLive, 60_000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleCopy = async (code: string) => {
     try {
@@ -260,6 +279,48 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Live Stream */}
+        {liveStatus.isLive && (
+          <section className="border-y border-red-900/40 bg-[#0e0b09]">
+            <div className="mx-auto max-w-7xl px-6 py-12">
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-400">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+                    LIVE NOW
+                  </span>
+                  {liveStatus.viewers !== null && (
+                    <span className="text-sm text-[#8e7650]">
+                      {liveStatus.viewers.toLocaleString()} viewers
+                    </span>
+                  )}
+                </div>
+                {liveStatus.title && (
+                  <p className="text-sm font-medium text-[#f3d7a0]">{liveStatus.title}</p>
+                )}
+                <a
+                  href="https://kick.com/heymargaux"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl bg-[#d9a441] px-4 py-2 text-sm font-semibold text-[#120d07] transition hover:brightness-110"
+                >
+                  Watch on Kick ↗
+                </a>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-[#2d2113] bg-black" style={{ aspectRatio: "16/9" }}>
+                <iframe
+                  src="https://player.kick.com/heymargaux?autoplay=true&muted=false"
+                  className="h-full w-full"
+                  allowFullScreen
+                  allow="autoplay; fullscreen"
+                  title="Hey Margaux Live Stream"
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Profile */}
         <section className="border-y border-[#1f180f] bg-[#0e0b09]">
