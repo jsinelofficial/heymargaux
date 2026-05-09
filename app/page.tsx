@@ -96,29 +96,29 @@ export default function HomePage() {
     {
       tag: "New Players",
       tagColor: "border-emerald-500/25 bg-emerald-500/10 text-emerald-400",
-      title: "Welcome Rakeback Boost",
-      text: "Get an instant rakeback boost during your first 7 days. All wagers count.",
+      title: "Instant Rakeback",
+      text: "Every wager you place earns rakeback automatically. Sign up through my link and start earning back a percentage of every bet from day one — no minimum required.",
       code: bonusCode,
     },
     {
       tag: "Weekly",
       tagColor: "border-blue-500/25 bg-blue-500/10 text-blue-400",
       title: "Weekly Reload Bonus",
-      text: "Reload every week and receive bonus credits automatically.",
+      text: "Stake rewards active players with weekly reload bonuses based on wager volume. The more consistently you play, the better your weekly boost.",
       code: bonusCode,
     },
     {
       tag: "VIP",
       tagColor: "border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-400",
-      title: "VIP Fast-Track",
-      text: "Use the code to speed up VIP progress and unlock tier rewards sooner.",
+      title: "VIP Tier Rewards",
+      text: "Stake's VIP program unlocks as you wager more. Each tier — Bronze through Platinum — comes with bigger bonuses, priority support, and exclusive perks only available to VIP members.",
       code: bonusCode,
     },
     {
       tag: "Hot",
       tagColor: "border-red-500/25 bg-red-500/10 text-red-400",
       title: "Crypto Deposit Bonus",
-      text: "Deposit with major crypto and unlock a bonus on your first deposit.",
+      text: "Stake is built for crypto. Deposit with BTC, ETH, LTC, and more for fast transactions, low fees, and a first-deposit bonus when you register through my official link.",
       code: bonusCode,
     },
   ];
@@ -192,13 +192,13 @@ export default function HomePage() {
       />
       <header className="sticky top-0 z-50 border-b border-[#3a2a14] bg-[#0b0908]/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <Image src="/margaux-icon.png" alt="Hey Margaux" width={32} height={32} className="h-8 w-8 object-contain" />
             <div>
               <p className="text-sm font-semibold tracking-wide text-[#f3d7a0]">Hey Margaux</p>
               <p className="text-[11px] text-[#8e7650]">Play. Win. Repeat</p>
             </div>
-          </div>
+          </a>
 
           <nav className="hidden items-center gap-8 text-sm text-[#b69561] md:flex">
             <a href="#benefits" className="transition hover:text-[#f3d7a0]">Benefits</a>
