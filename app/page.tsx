@@ -164,7 +164,7 @@ export default function HomePage() {
     { label: "Discord", href: "https://discord.gg/D2xJzsWsz5" },
     { label: "Facebook", href: "https://www.facebook.com/heymargaux" },
     { label: "Twitch", href: "https://www.twitch.tv/heymargaux" },
-    { label: "Articles", href: "/articles" },
+    { label: "Blog", href: "/blog" },
   ];
 
   const personSchema = {
@@ -625,7 +625,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap items-center gap-5 text-sm text-[#8f7248]">
               {socials.map((item) => (
-                <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="transition hover:text-[#f3d7a0]">
+                <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noreferrer" : undefined} className="transition hover:text-[#f3d7a0]">
                   {item.label}
                 </a>
               ))}

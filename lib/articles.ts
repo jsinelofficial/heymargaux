@@ -10,9 +10,14 @@ export type Article = {
   date: string;
   slug: string;
   category: string;
+  categorySlug: string;
   excerpt: string;
   content: string;
 };
+
+export function toCategorySlug(category: string): string {
+  return category.toLowerCase().replace(/\s+/g, "-");
+}
 
 export function getAllArticles(): Article[] {
   if (!fs.existsSync(articlesDirectory)) {
@@ -28,12 +33,14 @@ export function getAllArticles(): Article[] {
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
+    const category = (data.category as string) || "Articles";
     return {
       title: (data.title as string) || "",
       description: (data.description as string) || "",
       date: (data.date as string) || "",
       slug: (data.slug as string) || fileName.replace(/\.md$/, ""),
-      category: (data.category as string) || "Articles",
+      category,
+      categorySlug: toCategorySlug(category),
       excerpt: (data.excerpt as string) || "",
       content,
     };
@@ -43,4 +50,11 @@ export function getAllArticles(): Article[] {
 export function getArticleBySlug(slug: string): Article | undefined {
   const articles = getAllArticles();
   return articles.find((article) => article.slug === slug);
+}
+
+export function getArticleByCategoryAndSlug(categorySlug: string, slug: string): Article | undefined {
+  const articles = getAllArticles();
+  return articles.find(
+    (article) => article.categorySlug === categorySlug && article.slug === slug
+  );
 }

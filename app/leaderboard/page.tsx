@@ -42,7 +42,7 @@ const socials = [
   { label: "Discord", href: "https://discord.gg/9bFFkbjRFa" },
   { label: "Facebook", href: "https://www.facebook.com/heymargaux" },
   { label: "Twitch", href: "https://www.twitch.tv/heymargaux" },
-  { label: "Articles", href: "/articles" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export default function LeaderboardPage() {
