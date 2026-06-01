@@ -30,6 +30,14 @@ function currentMonthLabel() {
   });
 }
 
+function formatMonth(yyyyMm: string) {
+  const [year, month] = yyyyMm.split("-");
+  return new Date(Number(year), Number(month) - 1).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
 const TIERS = [
   { rank: "1st", prize: "$500", color: "text-yellow-400", border: "border-yellow-500/30", bg: "bg-yellow-500/10" },
   { rank: "2nd", prize: "$300", color: "text-slate-300", border: "border-slate-500/30", bg: "bg-slate-500/10" },
@@ -47,6 +55,7 @@ const socials = [
 
 export default function LeaderboardPage() {
   const [entries, setEntries] = useState<Entry[]>([]);
+  const [dataMonth, setDataMonth] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -54,7 +63,11 @@ export default function LeaderboardPage() {
 
   async function fetchEntries() {
     const res = await fetch("/api/leaderboard");
-    if (res.ok) setEntries(await res.json());
+    if (res.ok) {
+      const json = await res.json();
+      setEntries(json.entries ?? []);
+      if (json.month) setDataMonth(json.month);
+    }
     setLoading(false);
   }
 
@@ -164,7 +177,7 @@ export default function LeaderboardPage() {
               Monthly Wager Race
             </div>
             <h1 className="text-5xl font-semibold leading-tight text-[#fff6e8] md:text-6xl">
-              {currentMonthLabel()} <span className="text-[#d9a441]">Race</span>
+              {dataMonth ? formatMonth(dataMonth) : currentMonthLabel()} <span className="text-[#d9a441]">Race</span>
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#b79b70]">
               Wager on Stake using code <span className="font-semibold text-[#d9a441]">heymargaux</span> and climb the board. Top 10 players split <span className="font-semibold text-white">$1,250</span> in prizes every month.
@@ -221,7 +234,7 @@ export default function LeaderboardPage() {
           <h2 className="text-center text-2xl font-semibold text-[#fff5e3]">
             Current Standings
           </h2>
-          <p className="mt-1 text-center text-sm text-[#8e7650]">{currentMonthLabel()} · Top 10</p>
+          <p className="mt-1 text-center text-sm text-[#8e7650]">{dataMonth ? formatMonth(dataMonth) : currentMonthLabel()} · Top 10</p>
 
           <div className="mt-8 overflow-hidden rounded-2xl border border-[#2d2113]">
             {/* Table header */}

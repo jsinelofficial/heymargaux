@@ -8,10 +8,21 @@ function currentMonth() {
 
 export async function GET() {
   const supabase = getSupabase();
+
+  // Find the most recent month that has data
+  const { data: latestRow } = await supabase
+    .from("leaderboard_entries")
+    .select("month")
+    .order("month", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  const month = latestRow?.month ?? currentMonth();
+
   const { data, error } = await supabase
     .from("leaderboard_entries")
-    .select("stake_username, wager_usd")
-    .eq("month", currentMonth())
+    .select("stake_username, wager_usd, month")
+    .eq("month", month)
     .order("wager_usd", { ascending: false })
     .limit(10);
 
@@ -19,7 +30,7 @@ export async function GET() {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json(data ?? []);
+  return NextResponse.json({ entries: data ?? [], month });
 }
 
 export async function POST(req: NextRequest) {
