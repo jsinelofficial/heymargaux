@@ -177,7 +177,7 @@ export default function LeaderboardPage() {
               Monthly Wager Race
             </div>
             <h1 className="text-5xl font-semibold leading-tight text-[#fff6e8] md:text-6xl">
-              {dataMonth ? formatMonth(dataMonth) : currentMonthLabel()} <span className="text-[#d9a441]">Race</span>
+              {currentMonthLabel()} <span className="text-[#d9a441]">Race</span>
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#b79b70]">
               Wager on Stake using code <span className="font-semibold text-[#d9a441]">heymargaux</span> and climb the board. Top 10 players split <span className="font-semibold text-white">$1,250</span> in prizes every month.
