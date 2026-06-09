@@ -9,10 +9,11 @@ function currentMonth() {
 export async function GET() {
   const supabase = getSupabase();
 
-  // Find the most recent month that has data
+  // Find the most recent month that has at least one real wager (wager_usd > 0)
   const { data: latestRow } = await supabase
     .from("leaderboard_entries")
     .select("month")
+    .gt("wager_usd", 0)
     .order("month", { ascending: false })
     .limit(1)
     .maybeSingle();
