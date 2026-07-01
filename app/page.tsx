@@ -84,12 +84,16 @@ export default function HomePage() {
   ];
 
   const vipTiers = [
-    { name: "Bronze",      bonus: "$50",   icon: "🥉", color: "text-amber-700",   border: "border-amber-700/30",   bg: "bg-amber-700/10"   },
-    { name: "Silver",      bonus: "$75",   icon: "🥈", color: "text-slate-300",   border: "border-slate-400/30",   bg: "bg-slate-400/10"   },
-    { name: "Gold",        bonus: "$100",  icon: "🥇", color: "text-yellow-400",  border: "border-yellow-500/30",  bg: "bg-yellow-500/10"  },
-    { name: "Platinum I",  bonus: "$150",  icon: "💎", color: "text-cyan-400",    border: "border-cyan-500/30",    bg: "bg-cyan-500/10"    },
-    { name: "Platinum II", bonus: "$175",  icon: "💎", color: "text-violet-400",  border: "border-violet-500/30",  bg: "bg-violet-500/10"  },
-    { name: "Platinum III",bonus: "$250",  icon: "👑", color: "text-[#d9a441]",   border: "border-[#d9a441]/30",   bg: "bg-[#d9a441]/10"   },
+    { name: "Bronze",       bonus: "$10",    icon: "🥉", color: "text-amber-700",   border: "border-amber-700/30",   bg: "bg-amber-700/10"   },
+    { name: "Silver",       bonus: "$50",    icon: "🥈", color: "text-slate-300",   border: "border-slate-400/30",   bg: "bg-slate-400/10"   },
+    { name: "Gold",         bonus: "$100",   icon: "🥇", color: "text-yellow-400",  border: "border-yellow-500/30",  bg: "bg-yellow-500/10"  },
+    { name: "Platinum I",   bonus: "$200",   icon: "💎", color: "text-cyan-400",    border: "border-cyan-500/30",    bg: "bg-cyan-500/10"    },
+    { name: "Platinum II",  bonus: "$400",   icon: "💎", color: "text-violet-400",  border: "border-violet-500/30",  bg: "bg-violet-500/10"  },
+    { name: "Platinum III", bonus: "$800",   icon: "💎", color: "text-fuchsia-400", border: "border-fuchsia-500/30", bg: "bg-fuchsia-500/10" },
+    { name: "Platinum IV",  bonus: "$1,600", icon: "💎", color: "text-rose-400",    border: "border-rose-500/30",    bg: "bg-rose-500/10"    },
+    { name: "Platinum V",   bonus: "$3,200", icon: "💎", color: "text-orange-400",  border: "border-orange-500/30",  bg: "bg-orange-500/10"  },
+    { name: "Platinum VI",  bonus: "$6,400", icon: "💎", color: "text-emerald-400", border: "border-emerald-500/30", bg: "bg-emerald-500/10" },
+    { name: "Diamond",      bonus: "$15,000",icon: "👑", color: "text-[#d9a441]",   border: "border-[#d9a441]/30",   bg: "bg-[#d9a441]/10"   },
   ];
 
   const promos = [
@@ -111,7 +115,7 @@ export default function HomePage() {
       tag: "VIP",
       tagColor: "border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-400",
       title: "VIP Tier Rewards",
-      text: "Stake's VIP program unlocks as you wager more. Each tier — Bronze through Platinum — comes with bigger bonuses, priority support, and exclusive perks only available to VIP members.",
+      text: "Stake's VIP program unlocks as you wager more. Each tier — Bronze through Diamond — comes with a one-time tier bonus, priority support, and exclusive perks only available to VIP members.",
       code: bonusCode,
     },
     {
